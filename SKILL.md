@@ -116,7 +116,7 @@ every 250ms for up to 10 seconds before giving up.
 This is real, working code (lightly annotated) from the sibling repo
 [`demo-selenium-rust`](https://github.com/testingexamples/demo-selenium-rust),
 run against the free fixture page
-[testingexamples.github.io](https://testingexamples.github.io):
+[testingexamples.github.io](https://testingexamples.github.io/en-001/practice/):
 
 ```rust
 use thirtyfour::prelude::*;
@@ -137,7 +137,7 @@ async fn main() -> anyhow::Result<()> {
 }
 
 async fn run_demo(driver: &WebDriver) -> anyhow::Result<()> {
-    driver.goto("https://testingexamples.github.io").await?;
+    driver.goto("https://testingexamples.github.io/en-001/practice/").await?;
 
     // Find an element by id.
     let element_by_id = driver.query(By::Id("id-example-1")).single().await?;
@@ -207,7 +207,7 @@ The idiomatic way to turn this into a **real test** in Rust is `#[tokio::test]`
 async fn id_example_has_expected_text() -> anyhow::Result<()> {
     let caps = thirtyfour::DesiredCapabilities::chrome();
     let driver = thirtyfour::WebDriver::new("http://localhost:9515", caps).await?;
-    driver.goto("https://testingexamples.github.io").await?;
+    driver.goto("https://testingexamples.github.io/en-001/practice/").await?;
 
     let text = driver.query(thirtyfour::By::Id("id-example-1")).single().await?.text().await?;
     assert_eq!(text, "Id Example 1");
@@ -258,7 +258,7 @@ in "Learn more" below.
 - [`demo-selenium-rust`](https://github.com/testingexamples/demo-selenium-rust)
   — the locator-strategy walkthrough this skill's worked example is drawn
   from, run against the free fixture page
-  [testingexamples.github.io](https://testingexamples.github.io/).
+  [testingexamples.github.io](https://testingexamples.github.io/en-001/practice/).
 - [`demo-selenium-rust-for-google-search`](https://github.com/testingexamples/demo-selenium-rust-for-google-search)
   and
   [`demo-selenium-rust-for-google-maps`](https://github.com/testingexamples/demo-selenium-rust-for-google-maps)
@@ -273,7 +273,7 @@ in "Learn more" below.
   [nhs.wales](https://www.nhs.wales/).
 - [docs.rs/thirtyfour](https://docs.rs/thirtyfour) — the crate's full API
   reference.
-- [testingexamples.github.io](https://testingexamples.github.io/) — the free,
+- [testingexamples.github.io](https://testingexamples.github.io/en-001/practice/) — the free,
   stable fixture page the generic demo targets; safe to run against
   repeatedly (unlike Google Search/Maps above).
 
